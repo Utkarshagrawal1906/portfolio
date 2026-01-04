@@ -1,7 +1,7 @@
 import styles from "./Contact.module.css";
 import { useState, useEffect } from "react";
 import resume from "../../assets/utkarsh Resume.pdf";
-
+import leetcodeLogo from '../../assets/leetcode.png';
 export default function Contact() {
   const [status, setStatus] = useState("");
 
@@ -44,7 +44,7 @@ export default function Contact() {
               <a href="https://www.linkedin.com/in/utkarsh-agrawal-3157871a8" aria-label="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
               <a href="https://github.com/Utkarshagrawal1906" aria-label="GitHub"><i className="fa-brands fa-github"></i></a>
               <a href="https://www.hackerrank.com/UtkarshAg" aria-label="HackerRank"><i className="fa-brands fa-hackerrank"></i></a>
-              <a href="https://leetcode.com/utkarsh197" aria-label="LeetCode"><img width="24" height="24" src="/src/assets/leetcode.png" alt="leetcode"/></a>
+              <a href="https://leetcode.com/utkarsh197" aria-label="LeetCode"><img width="24" height="24" src={leetcodeLogo} alt="leetcode"/></a>
             </div>
 
             <a href={resume} download="Utkarsh Agrawal Resume" className={styles.cv}>Download CV</a>
