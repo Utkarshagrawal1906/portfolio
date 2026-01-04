@@ -1,0 +1,131 @@
+.contact {
+  padding: 60px 10%;
+}
+
+.title {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.info {
+  flex: 1;
+  max-width: 420px;
+}
+
+.contactCard {
+  background: #262626;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.contactItem {
+  margin-bottom: 14px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e6eef2; /* subtle, readable text */
+}
+
+.contactItem a{
+  color: #c7f0ea; /* soft mint accent */
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.12s ease;
+}
+
+.contactItem a:hover{
+  color: #1b4b83; /* brand accent on hover */
+  transform: translateY(-2px);
+}
+
+.icon {
+  font-size: 20px;
+  color: #1b4b83; /* accent for icons */
+}
+
+.icons {
+  margin-top: 12px;
+  display: flex;
+  gap: 15px;
+}
+
+.icons a {
+  color: #ababab;
+  font-size: 22px;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.15s;
+}
+
+.icons a:hover {
+  color: #1b4b83;
+  transform: translateY(-4px);
+}
+
+.cv {
+  display: inline-block;
+  margin-top: 18px;
+  background: #1b4b83;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.form {
+  flex: 1;
+  max-width: 700px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  background: #262626;
+  border: none;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: white;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: 2px solid rgba(27, 75, 131, 0.25);
+}
+
+.form button {
+  background: #1b4b83;
+  border: none;
+  padding: 14px 40px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.12s;
+  border-radius: 6px;
+}
+
+.form button:hover {
+  transform: translateY(-3px);
+}
+
+.status {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 12px;
+  background: rgba(12,112,18,0.12);
+  color: #0c7012;
+  border-radius: 6px;
+}
+
+/* mobile */
+@media (max-width: 600px){
+  .wrapper { flex-direction: column; gap: 20px; }
+  .info, .form { max-width: 100%; }
+  .title { font-size: 36px; }
+}
