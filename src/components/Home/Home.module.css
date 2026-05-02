@@ -73,16 +73,20 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .sectionsContainer {
-    padding-top: 200px; /* More space for mobile HUD */
+    padding-top: 0;
   }
 
   .section {
     min-height: auto;
   }
+
+  .section:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 480px) {
   .sectionsContainer {
-    padding-top: 220px;
+    padding-top: 0;
   }
 }

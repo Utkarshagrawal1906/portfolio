@@ -125,7 +125,14 @@
 
 /* mobile */
 @media (max-width: 600px){
+  .contact { padding: 56px 6%; }
   .wrapper { flex-direction: column; gap: 20px; }
   .info, .form { max-width: 100%; }
-  .title { font-size: 36px; }
+  .title { font-size: 36px; margin-bottom: 28px; }
+  .contactCard { padding: 20px; }
+  .contactItem { align-items: flex-start; font-size: 15px; line-height: 1.45; }
+  .contactItem a { overflow-wrap: anywhere; }
+  .form input,
+  .form textarea { padding: 13px; font-size: 15px; }
+  .form button { width: 100%; }
 }

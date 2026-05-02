@@ -140,6 +140,19 @@
   color: #1b4b83;
 }
 
+.profileContainer {
+  display: none;
+}
+
+.profilePhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 @media (min-width: 1200px) {
   .text {
     margin-top: 18%;
@@ -162,22 +175,35 @@
 
 /* Mobile */
 @media (max-width: 600px) {
-  .graphLayer {
-    width: 80%;
-    min-width: 0;
-    opacity: 0.55;
+  .header {
+    min-height: 100svh;
+    height: auto;
+    padding-bottom: 72px;
   }
 
-  .menu {
+  .nav {
+    padding: 22px 6%;
+  }
+
+  .logo {
+    width: 86px;
+  }
+
+  .graphLayer {
+    display: none;
+  }
+
+  /* .menu {
     position: fixed;
     right: -200px;
     top: 0;
     height: 100vh;
     width: 200px;
-    background: #2b8146;
+    background: rgba(12, 18, 32, 0.96);
     flex-direction: column;
     padding-top: 60px;
     transition: right 0.3s;
+    z-index: 20;
   }
 
   .open {
@@ -186,5 +212,38 @@
 
   .menuBtn {
     display: block;
+    position: relative;
+    z-index: 21;
+  } */
+
+  .text {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0 6%;
+    font-size: 18px;
+    max-width: 92%;
+  }
+
+  .text p {
+    font-size: 16px;
+  }
+
+  .text h1 {
+    font-size: 28px;
+  }
+
+  .profileContainer {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profilePhoto {
+    width: 100px;
+    height: 100px;
   }
 }

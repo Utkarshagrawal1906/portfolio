@@ -26,8 +26,8 @@
 .servicesTrack {
   display: grid;
   grid-template-columns: repeat(
-    4,
-    calc((100% - (var(--services-gap) * 2)) / 3)
+    var(--track-services),
+    calc((100% - (var(--services-gap) * (var(--visible-services) - 1))) / var(--visible-services))
   );
   gap: var(--services-gap);
   align-items: stretch;
@@ -37,7 +37,7 @@
 
 .trackPrevious {
   margin-left: calc(
-    -1 * (((100% - (var(--services-gap) * 2)) / 3) + var(--services-gap))
+    -1 * (((100% - (var(--services-gap) * (var(--visible-services) - 1))) / var(--visible-services)) + var(--services-gap))
   );
 }
 
@@ -47,7 +47,7 @@
 
 .trackSliding:not(.trackPrevious) {
   margin-left: calc(
-    -1 * (((100% - (var(--services-gap) * 2)) / 3) + var(--services-gap))
+    -1 * (((100% - (var(--services-gap) * (var(--visible-services) - 1))) / var(--visible-services)) + var(--services-gap))
   );
 }
 
@@ -226,6 +226,10 @@
 }
 
 @media (max-width: 700px) {
+  .container {
+    padding: 56px 6%;
+  }
+
   .subtitle {
     font-size: 42px;
   }
@@ -262,18 +266,27 @@
 }
 
 @media (max-width: 560px) {
+  .subtitle {
+    font-size: 36px;
+  }
+
   .carousel {
     display: grid;
-    grid-template-columns: 48px 1fr 48px;
+    grid-template-columns: 42px 1fr 42px;
+    gap: 10px;
+    margin-top: 28px;
   }
 
   .servicesViewport {
     grid-column: 1 / -1;
     grid-row: 1;
-    padding-top: 68px;
+    padding-top: 58px;
   }
 
   .navButton {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
     position: relative;
     z-index: 4;
   }
@@ -286,6 +299,22 @@
   .navButton:last-child {
     grid-column: 3;
     grid-row: 1;
+  }
+
+  .card {
+    min-height: 250px;
+  }
+
+  .middleCard {
+    transform: scale(1);
+  }
+
+  .middleCard:hover {
+    transform: translateY(-6px) scale(1);
+  }
+
+  .previewCard {
+    display: none;
   }
 }
 

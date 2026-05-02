@@ -285,20 +285,48 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .hudHoverZone {
+    height: 58px;
+  }
+
   .navigation {
-    padding: 10px 15px;
+    padding: 8px 10px;
+    gap: 10px;
   }
 
   .navArrow {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+    border-width: 1px;
+  }
+
+  .sectionIndicator {
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .sectionDots {
+    gap: 6px;
+    max-width: calc(100vw - 108px);
+    overflow-x: auto;
+    padding: 2px 4px 6px;
+    scrollbar-width: none;
   }
 
   .sectionDot {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+    font-size: 11px;
+    border-width: 1px;
+  }
+
+  .currentSectionName {
     font-size: 12px;
+    max-width: calc(100vw - 120px);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .mapContainer {
@@ -319,12 +347,11 @@
 
 @media (max-width: 480px) {
   .navigation {
-    flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
   .sectionIndicator {
-    order: -1;
+    order: 0;
   }
 
   .mapGrid {

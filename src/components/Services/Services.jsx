@@ -24,8 +24,7 @@ const services = [
   },
 ];
 
-const visibleCount = 3;
-const middleCardIndex = 1;
+const desktopVisibleCount = 3;
 const slideDuration = 450;
 
 export default function Services() {
@@ -37,9 +36,19 @@ export default function Services() {
   const [slideDirection, setSlideDirection] = useState(null);
   const [isSliding, setIsSliding] = useState(false);
   const [previewDirection, setPreviewDirection] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(desktopVisibleCount);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 560px)");
+    const updateVisibleCount = () => {
+      setVisibleCount(mediaQuery.matches ? 1 : desktopVisibleCount);
+    };
+
+    updateVisibleCount();
+    mediaQuery.addEventListener("change", updateVisibleCount);
+
     return () => {
+      mediaQuery.removeEventListener("change", updateVisibleCount);
       cancelAnimationFrame(animationFrameRef.current);
       clearTimeout(animationTimeoutRef.current);
     };
@@ -99,7 +108,12 @@ export default function Services() {
     moveServices("next");
   };
 
-  const featuredCardIndex = slideDirection === "next" ? 2 : middleCardIndex;
+  const featuredCardIndex =
+    visibleCount === 1
+      ? 0
+      : slideDirection === "next"
+        ? visibleCount - 1
+        : Math.floor(visibleCount / 2);
 
   const getCardScale = (index, isHovering = false) => {
     if (index === featuredCardIndex) {
@@ -171,6 +185,10 @@ export default function Services() {
               className={`${styles.servicesTrack} ${
                 slideDirection === "previous" ? styles.trackPrevious : ""
               } ${isSliding ? styles.trackSliding : ""}`}
+              style={{
+                "--visible-services": visibleCount,
+                "--track-services": visibleServices.length,
+              }}
             >
               {visibleServices.map((service, index) => (
                 <div

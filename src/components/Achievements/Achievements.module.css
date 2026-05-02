@@ -259,11 +259,18 @@
 
 @media (max-width: 620px) {
   .achievements {
-    padding: 60px 6%;
+    padding: 56px 6%;
+    min-height: auto;
   }
 
   .header h2 {
-    font-size: 42px;
+    font-size: 38px;
+    line-height: 1.1;
+  }
+
+  .intro {
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   .statsGrid,
@@ -273,5 +280,27 @@
 
   .card {
     min-height: auto;
+    padding: 18px;
+  }
+
+  .stat {
+    min-height: 86px;
+    padding: 16px;
+  }
+
+  .stat strong {
+    font-size: 28px;
+  }
+
+  .cardTop {
+    align-items: flex-start;
+  }
+
+  .signal {
+    font-size: 11px;
+  }
+
+  .card h3 {
+    font-size: 19px;
   }
 }

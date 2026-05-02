@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import projects from "../../data/projects";
 
-const maxVisibleImages = 3;
+const desktopVisibleImages = 3;
 const slideDuration = 450;
 
 export default function Project() {
@@ -16,9 +16,19 @@ export default function Project() {
   const [slideDirection, setSlideDirection] = useState(null);
   const [isSliding, setIsSliding] = useState(false);
   const [previewDirection, setPreviewDirection] = useState(null);
+  const [maxVisibleImages, setMaxVisibleImages] = useState(desktopVisibleImages);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const updateVisibleImages = () => {
+      setMaxVisibleImages(mediaQuery.matches ? 1 : desktopVisibleImages);
+    };
+
+    updateVisibleImages();
+    mediaQuery.addEventListener("change", updateVisibleImages);
+
     return () => {
+      mediaQuery.removeEventListener("change", updateVisibleImages);
       cancelAnimationFrame(animationFrameRef.current);
       clearTimeout(animationTimeoutRef.current);
     };

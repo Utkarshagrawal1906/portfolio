@@ -43,12 +43,18 @@
 
 @media (max-width:640px){
   .project{padding:70px 5% 40px}
-  .centeredTitle{font-size:34px}
-  .largeGallery{display:grid;grid-template-columns:50px 1fr 50px}
-  .galleryViewport{grid-column:1/-1;grid-row:1;padding-top:70px}
-  .navButton{grid-row:1;align-self:start}
+  .backTop{top:16px;left:5%;font-size:14px;padding:7px 10px}
+  .centeredTitle{font-size:30px;line-height:1.18;margin-top:22px}
+  .externalSection{margin-bottom:24px}
+  .largeGallery{--gallery-gap:14px;display:grid;grid-template-columns:42px 1fr 42px;gap:10px}
+  .galleryViewport{grid-column:1/-1;grid-row:1;padding-top:58px}
+  .navButton{grid-row:1;align-self:start;width:42px;height:42px;font-size:24px;flex-basis:42px}
   .navButton:first-of-type{grid-column:1}
   .navButton:last-of-type{grid-column:3}
-  .imageCard{height:200px}
-  .previewImage{width:110px;height:130px}
+  .imageCard{height:230px}
+  .previewImage{display:none}
+  .imageCounter{bottom:-2px}
+  .fullDescription{text-align:left}
+  .fullDescription h3{font-size:22px}
+  .fullDescription p{line-height:1.6}
 }

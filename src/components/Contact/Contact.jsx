@@ -1,6 +1,6 @@
 import styles from "./Contact.module.css";
 import { useState, useEffect } from "react";
-import resume from "../../assets/utkarsh Resume.pdf";
+import resume from "../../assets/resume p.pdf";
 import leetcodeLogo from '../../assets/leetcode.png';
 export default function Contact() {
   const [status, setStatus] = useState("");

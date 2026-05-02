@@ -1,5 +1,6 @@
 import styles from "./Header.module.css";
 import bg from "../../assets/background.png";
+import bgMobile from "../../assets/background mobile.png";
 import logo from "../../assets/Logo.jpeg";
 import { useState, useRef, useEffect, useMemo } from "react";
 import Typed from "typed.js";
@@ -79,7 +80,8 @@ const isInFadedGraphZone = (node, zones) => {
 };
 
 export default function Header({ onTypedTextChange }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [graphCursor, setGraphCursor] = useState(null);
   const [visibleTechs, setVisibleTechs] = useState([]);
   const typedRef = useRef(null);
@@ -162,6 +164,17 @@ export default function Header({ onTypedTextChange }) {
     };
   }, [onTypedTextChange]);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const handleHeaderMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const graphWidth = rect.width * graphAreaWidth;
@@ -182,7 +195,7 @@ export default function Header({ onTypedTextChange }) {
   return (
     <header
       className={styles.header}
-      style={{ backgroundImage: `url(${bg})` }}
+      style={{ backgroundImage: `url(${isMobile ? bgMobile : bg})` }}
       onMouseMove={handleHeaderMouseMove}
       onMouseLeave={() => setGraphCursor(null)}
     >
@@ -260,7 +273,7 @@ export default function Header({ onTypedTextChange }) {
 
       <nav className={styles.nav}>
         <img src={logo} className={styles.logo} alt="Logo" />
-        <ul className={`${styles.menu} ${menuOpen ? styles.open : ""}`}>
+        {/* <ul className={`${styles.menu} ${menuOpen ? styles.open : ""}`}>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
@@ -274,7 +287,7 @@ export default function Header({ onTypedTextChange }) {
           aria-label="Toggle Menu"
         >
           ☰
-        </button>
+        </button> */}
       </nav>
 
       <div className={styles.text}>

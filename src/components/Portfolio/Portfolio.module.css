@@ -104,3 +104,50 @@
 .moreBtn:hover{
   background: #1b4b83;
 }
+
+@media (max-width: 700px) {
+  .portfolio {
+    padding: 56px 6%;
+  }
+
+  .title {
+    font-size: 38px;
+    margin-bottom: 28px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .card {
+    height: 210px;
+  }
+
+  .overlay {
+    opacity: 1;
+    justify-content: flex-end;
+    padding: 18px;
+    background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.82));
+  }
+
+  .overlay h3 {
+    font-size: 18px;
+  }
+
+  .overlay p {
+    display: none;
+  }
+
+  .overlay a {
+    width: 42px;
+    height: 42px;
+  }
+
+  .moreBtn {
+    margin: 34px auto 0;
+    width: 100%;
+    max-width: 260px;
+    padding: 12px 22px;
+  }
+}
