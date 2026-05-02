@@ -28,24 +28,32 @@ export default function About() {
               {activeTab === 'skills' && (
                 <dl>
                   <dt>Java</dt>
-                  <dd>Desktop Applications using Java Swing or Web-App using Spring-Boot</dd>
+                  <dd>Desktop Applications using Java Swing or Java FX or Web-App using Spring-Boot</dd>
                   <dt>Python</dt>
-                  <dd>AI Based Voice Assistants, Automation Scripts, Web-App using Django</dd>
+                  <dd>AI Based Voice Assistants, Automation Scripts, Web-App using Django, FastAPI</dd>
                   <dt>HTML, CSS, JavaScript</dt>
-                  <dd>Designing UI/UX for Web-App</dd>
-                  <dt>AWS, Genesys</dt>
-                  <dd>Creating/Managing contact center cloud systems via AWS Connect/Genesys Engage</dd>
+                  <dd>Designing UI/UX for Web-App using React JS, Vue.js, Node JS</dd>
+                  <dt>Contact Center</dt>
+                  <dd>Creating/Managing contact center cloud systems via AWS Connect/Five9/Google Dialog Flow</dd>
+                  <dt>Cloud</dt>
+                  <dd>Experience with AWS, Google Cloud for deploying applications and managing infrastructure</dd>
                   <dt>Android Development</dt>
-                  <dd>Designing Android Apps using Java, Kotlin</dd>
+                  <dd>Designing Android Apps using Java, Kotlin(Jetpack compose)</dd>
                 </dl>
               )}
 
               {activeTab === 'experience' && (
                 <dl>
+                  <dt>TCS Systems Engineer - C1</dt>
+                  <sup>April 2026 to Present</sup>
+                  <dd>Collaborating with the GenAI Chatbot team for American Express to automate operational workflows using Python and cloud services, improving internal process efficiency</dd>
+                  <dd>Led a sub-team of 4 engineers to build and execute Python-based ETL pipelines for data ingestion in OpenSearch</dd>
+                  
                   <dt>Cognizant Programmer Analyst - GenC Next</dt>
-                  <sup>Sep-2023 to Present</sup>
-                  <dd>Created automation tools for DevOps and SRE team using Python which reduced change validation time up to 80%.</dd>
-                  <dd>Developed IVR System using AWS Connect, Lambda, Lex, Polly, CloudWatch, DynamoDB and S3.</dd>
+                  <sup>Sep-2023 to April 2026</sup>
+                  <dd>Proposed, designed, and single-handedly developed an automated server-management Django backend tool, deployed in production to manage 2,600+ Amex servers and dramatically reduce manual operational workload</dd>
+                  <dd>Built backend components for Amex’s internal operations platform (VIRAAT), implementing Python(Flask)-based APIs and automation workflows that improved processing efficiency and reduced manual efforts</dd>
+                  <dd>Led a sub-team of 4 engineers to build and execute Python-based ETL pipelines for data ingestion in OpenSearch</dd>
 
                   <dt>Cognizant Programmer Analyst - GenC Next Intern</dt>
                   <sup>March-2023 to July-2023</sup>

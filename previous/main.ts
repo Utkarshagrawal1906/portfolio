@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'a passionate <i>Python</i> Application Developer', 
             'an enthusiastic <i>Web</i> Developer', 
             'an enthusiastic <i>Android</i> Developer', 
-            'a <i>Software Developer</i> at Cognizant'
+            'a <i>Software Developer</i> at TCS'
         ],
         typeSpeed: 50,
     });

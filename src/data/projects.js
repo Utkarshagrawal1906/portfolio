@@ -2,7 +2,8 @@ import work1 from "../assets/accounting.png";
 import work2 from "../assets/Sans.jpeg";
 import work3 from "../assets/vision.png";
 import handCricket from "../assets/hand cricket.png";
-import kbc from "../assets/kbc q.png";
+import kbc from "../assets/kbc.png";
+import kbc_q from "../assets/kbc q.png";
 import ludo from "../assets/ludo.png";
 import snake from "../assets/snake.png";
 import tagger from "../assets/tagger.png";
@@ -21,13 +22,15 @@ const projects = [
     description: "Inventory management and accounting desktop application.",
     images: [work1],
     external: "https://github.com/Utkarshagrawal1906/Accounting",
+    tags: ["desktop application"],
   },
   {
     slug: "sanskrit-dictionary",
     title: "Sanskrit-Hin-Eng Dictonary",
     description: "English–Hindi–Sanskrit dictionary (Android app).",
-    images: [work2, kbc],
+    images: [work2],
     external: "https://play.google.com/store/apps/details?id=com.utkarsh.sanskritdictonary&hl=en_IN",
+    tags: ["android"],
   },
   {
     slug: "vision",
@@ -35,6 +38,7 @@ const projects = [
     description: "Personal voice assistant built for desktop (Vision).",
     images: [work3],
     external: "https://github.com/Utkarshagrawal1906/Vision1",
+    tags: ["desktop application", "AI"],
   },
   {
     slug: "hand-cricket",
@@ -42,6 +46,7 @@ const projects = [
     description: "Simple hand cricket game against the computer.",
     images: [handCricket],
     external: "https://github.com/Utkarshagrawal1906/hand-cricket",
+    tags: ["desktop application"],
   },
   {
     slug: "ludo",
@@ -49,6 +54,7 @@ const projects = [
     description: "Desktop Ludo game.",
     images: [ludo],
     external: "https://github.com/Utkarshagrawal1906/ludo",
+    tags: ["desktop application"],
   },
   {
     slug: "snake",
@@ -56,6 +62,7 @@ const projects = [
     description: "Classic snake game.",
     images: [snake],
     external: "https://github.com/Utkarshagrawal1906/snake",
+    tags: ["desktop application"],
   },
   {
     slug: "tagger",
@@ -63,6 +70,7 @@ const projects = [
     description: "Tool to tag system files for fast searching.",
     images: [tagger],
     external: "#",
+    tags: ["desktop application"],
   },
   {
     slug: "rfid",
@@ -70,6 +78,7 @@ const projects = [
     description: "Attendance management using RFID.",
     images: [rfid],
     external: "#",
+    tags: ["desktop application"],
   },
   {
     slug: "upp",
@@ -77,6 +86,7 @@ const projects = [
     description: "UPP project repository and screenshot.",
     images: [upp],
     external: "https://github.com/Utkarshagrawal1906/UPP",
+    tags: ["web"],
   },
   {
     slug: "lex-chatbot",
@@ -84,6 +94,7 @@ const projects = [
     description: "ChatBot built on Amazon Lex for appointment booking.",
     images: [lex],
     external: "#",
+    tags: ["cloud", "AI"],
   },
   {
     slug: "start",
@@ -91,6 +102,7 @@ const projects = [
     description: "Desktop startup application.",
     images: [startImg],
     external: "#",
+    tags: ["desktop application"],
   },
   {
     slug: "emailer",
@@ -98,6 +110,7 @@ const projects = [
     description: "Java email-sending application.",
     images: [emailImg],
     external: "#",
+    tags: ["desktop application"],
   },
   {
     slug: "calculator",
@@ -105,6 +118,7 @@ const projects = [
     description: "Advanced calculator for programmers.",
     images: [calculator],
     external: "#",
+    tags: ["desktop application"],
   },
   {
     slug: "trivia",
@@ -112,13 +126,15 @@ const projects = [
     description: "Small Android quiz app with animations.",
     images: [trivia],
     external: "#",
+    tags: ["android"],
   },
   {
-    slug: "sanskrit-image",
-    title: "Sanskrit Dictionary (image)",
-    description: "Sanskrit dictionary preview image.",
-    images: [kbc],
+    slug: "KBC Game",
+    title: "KBC Game",
+    description: "KBC Game screenshot.",
+    images: [kbc, kbc_q],
     external: "#",
+    tags: ["desktop application"],
   },
 ];
 

@@ -1,0 +1,422 @@
+/* Game HUD Styles */
+.hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  font-family: 'Courier New', monospace;
+  pointer-events: none;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hiddenHud {
+  opacity: 0;
+  transform: translateY(-90%);
+  pointer-events: none;
+}
+
+.hudHoverZone {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: min(760px, 100%);
+  height: 95px;
+  z-index: 999;
+  pointer-events: auto;
+  background: transparent;
+  transform: translateX(-50%);
+}
+
+/* Navigation */
+.navigation {
+  background: transparent;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  pointer-events: auto;
+}
+
+.navArrow {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 2px solid #00d4ff;
+  color: #00d4ff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navArrow:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+  transform: scale(1.1);
+}
+
+.navArrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.sectionIndicator {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.sectionDots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.currentSectionName {
+  font-size: 14px;
+  font-weight: bold;
+  color: #00d4ff;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+  margin-top: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.sectionDot {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #333, #666);
+  border: 2px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sectionDot:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.sectionDot.visited {
+  background: linear-gradient(135deg, #2ed573, #26de81);
+  border-color: #2ed573;
+  color: white;
+  box-shadow: 0 0 10px rgba(46, 213, 115, 0.5);
+}
+
+.sectionDot.current {
+  background: linear-gradient(135deg, #ffa502, #ff6348);
+  border-color: #ffa502;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 165, 2, 0.8);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Section Info */
+.sectionInfo {
+  background: rgba(15, 52, 96, 0.9);
+  padding: 10px 20px;
+  text-align: center;
+  border-top: 1px solid #00d4ff;
+  pointer-events: auto;
+}
+
+.sectionName {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00d4ff;
+  margin: 0;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+}
+
+.objective {
+  font-size: 12px;
+  color: #ffd93d;
+  margin: 5px 0 0 0;
+}
+
+/* World Map */
+.mapOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  pointer-events: auto;
+}
+
+.mapContainer {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 3px solid #00d4ff;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.mapContainer h2 {
+  color: #00d4ff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+.mapGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.mapSection {
+  background: linear-gradient(135deg, #333, #666);
+  border: 2px solid #999;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mapSection.unlocked {
+  background: linear-gradient(135deg, #2ed573, #26de81);
+  border-color: #2ed573;
+  box-shadow: 0 0 10px rgba(46, 213, 115, 0.5);
+}
+
+.mapSection.locked {
+  background: linear-gradient(135deg, #333, #666);
+  border-color: #666;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mapSection.currentLocation {
+  background: linear-gradient(135deg, #ffa502, #ff6348);
+  border-color: #ffa502;
+  box-shadow: 0 0 15px rgba(255, 165, 2, 0.8);
+  animation: pulse 2s infinite;
+}
+
+.mapIcon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.mapName {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.lockIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 16px;
+}
+
+.playerMarker {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 20px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.closeMap {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeMap:hover {
+  background: linear-gradient(135deg, #0099cc, #0077aa);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navigation {
+    padding: 10px 15px;
+  }
+
+  .navArrow {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .sectionDot {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .mapContainer {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .mapGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .mapSection {
+    padding: 10px;
+    min-height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sectionIndicator {
+    order: -1;
+  }
+
+  .mapGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Particle Effects */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10000;
+  animation: particleFloat 1s ease-out forwards;
+}
+
+.particle-sparkle {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffd93d, #ffa502);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 217, 61, 0.8);
+}
+
+.particle-levelup {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 1;
+    transform: scale(0) translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1) translateY(-20px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-40px);
+  }
+}
+
+/* Achievement Notifications */
+.achievement {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #ffd93d, #ffa502);
+  border: 3px solid #ff6348;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 165, 2, 0.6);
+  z-index: 3000;
+  animation: achievementPop 0.5s ease-out;
+  max-width: 300px;
+}
+
+.achievementIcon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.achievementTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 5px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.achievementDesc {
+  font-size: 14px;
+  color: white;
+  margin: 0;
+}
+
+@keyframes achievementPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
