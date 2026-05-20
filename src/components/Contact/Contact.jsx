@@ -41,7 +41,7 @@ export default function Contact() {
             <p className={styles.contactItem}><span className={styles.icon}>📱</span><a href="tel:+919870601702">+91 9870601702</a></p>
 
             <div className={styles.icons}>
-              <a href="https://www.linkedin.com/in/utkarsh-agrawal-3157871a8" aria-label="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/utkarshag7/" aria-label="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
               <a href="https://github.com/Utkarshagrawal1906" aria-label="GitHub"><i className="fa-brands fa-github"></i></a>
               <a href="https://www.hackerrank.com/UtkarshAg" aria-label="HackerRank"><i className="fa-brands fa-hackerrank"></i></a>
               <a href="https://leetcode.com/utkarsh197" aria-label="LeetCode"><img width="24" height="24" src={leetcodeLogo} alt="leetcode"/></a>

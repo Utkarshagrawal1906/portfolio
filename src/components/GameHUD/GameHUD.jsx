@@ -2,12 +2,11 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import styles from './GameHUD.module.css';
 // import { playSound, checkAchievements, createParticleEffect } from '../../utils/gameUtils';
 
-const HUD_HIDE_DELAY = 3000;
+const HUD_HIDE_DELAY = 2500;
 
 const GameHUD = ({
   currentSection,
   sections,
-  playerHealth,
   playerExp,
   onNavigate,
   onSectionClick
