@@ -160,9 +160,7 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
                     calcMode="linear"
                   />
 
-                  <g transform="scale(0.68)">
-                    <path d="M-5,9 H7" stroke="#4ecdc4" strokeWidth="1.1" strokeLinecap="round" opacity="0.35" />
-
+                  <g transform="scale(0.48)">
                     <ellipse cx="1" cy="9" rx="5" ry="0.8" fill="#000000" opacity="0.24">
                       <animate attributeName="rx" values="5;4;4;3.5;6;4;3.5" dur="6s" repeatCount="indefinite" />
                     </ellipse>
@@ -180,17 +178,61 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
                       <path d="M-2.6,-11.4 Q0,-14 2.8,-11.6" fill="none" stroke="#2b2b2b" strokeWidth="1" strokeLinecap="round" />
 
                       <rect x="-3.4" y="-7" width="6.8" height="9" rx="2" fill="#4ecdc4" />
-                      <rect x="-5.7" y="-5.2" width="3" height="6.8" rx="1" fill="#1b4b83" />
-
-                      <path d="M-3,-4 L-8,-9" stroke="#ffd8a8" strokeWidth="1.5" strokeLinecap="round">
-                        <animate attributeName="d" values="M-3,-4 L-8,-9;M-3,-4 L-5,-13;M-3,-4 L-8,-9;M-3,-4 L-5,-13;M-3,-4 L-10,-2;M-3,-4 L-5,-13;M-3,-4 L-8,-9" dur="6s" repeatCount="indefinite" />
+                      <path d="M-3,-4 Q-6,-4 -7,-1" stroke="#ffd8a8" strokeWidth="1.5" strokeLinecap="round" fill="none">
+                        <animate
+                          attributeName="d"
+                          values="M-3,-4 Q-6,-4 -7,-1;M-3,-4 Q-6,-4 -7,-1;M-3,-4 Q-6,-8 -2,-11;M-3,-4 Q-2,-9 3,-12;M-3,-4 Q-2,-9 3,-12;M-3,-4 Q-6,-4 -7,-1;M-3,-4 Q-6,-8 -2,-11;M-3,-4 Q-2,-9 3,-12;M-3,-4 Q-6,-4 -7,-1;M-3,-4 Q-6,-8 -2,-11"
+                          keyTimes="0;0.12;0.2;0.32;0.44;0.52;0.64;0.76;0.84;1"
+                          dur="6s"
+                          repeatCount="indefinite"
+                          calcMode="linear"
+                        />
                       </path>
-                      <path d="M3,-4 L8,-12" stroke="#ffd8a8" strokeWidth="1.5" strokeLinecap="round">
-                        <animate attributeName="d" values="M3,-4 L8,-12;M3,-4 L10,-8;M3,-4 L8,-12;M3,-4 L10,-8;M3,-4 L9,-1;M3,-4 L10,-8;M3,-4 L8,-12" dur="6s" repeatCount="indefinite" />
+                      <path d="M3,-4 Q5,-8 8,-11" stroke="#ffd8a8" strokeWidth="1.5" strokeLinecap="round" fill="none">
+                        <animate
+                          attributeName="d"
+                          values="M3,-4 Q5,-8 8,-11;M3,-4 Q6,-6 8,-8;M3,-4 Q7,-3 6,-1;M3,-4 Q7,-3 6,-1;M3,-4 Q6,-8 9,-11;M3,-4 Q6,-8 9,-11;M3,-4 Q7,-3 6,-1;M3,-4 Q6,-7 10,-9;M3,-4 Q6,-7 10,-9;M3,-4 Q7,-3 6,-1"
+                          keyTimes="0;0.12;0.2;0.32;0.44;0.52;0.64;0.76;0.84;1"
+                          dur="6s"
+                          repeatCount="indefinite"
+                          calcMode="linear"
+                        />
                       </path>
-                      <circle cx="8" cy="-12" r="0.85" fill="#ffd8a8">
-                        <animate attributeName="cx" values="8;10;8;10;9;10;8" dur="6s" repeatCount="indefinite" />
-                        <animate attributeName="cy" values="-12;-8;-12;-8;-1;-8;-12" dur="6s" repeatCount="indefinite" />
+                      <circle cx="-7" cy="-1" r="0.85" fill="#ffd8a8">
+                        <animate
+                          attributeName="cx"
+                          values="-7;-7;-2;3;3;-7;-2;3;-7;-2"
+                          keyTimes="0;0.12;0.2;0.32;0.44;0.52;0.64;0.76;0.84;1"
+                          dur="6s"
+                          repeatCount="indefinite"
+                          calcMode="linear"
+                        />
+                        <animate
+                          attributeName="cy"
+                          values="-1;-1;-11;-12;-12;-1;-11;-12;-1;-11"
+                          keyTimes="0;0.12;0.2;0.32;0.44;0.52;0.64;0.76;0.84;1"
+                          dur="6s"
+                          repeatCount="indefinite"
+                          calcMode="linear"
+                        />
+                      </circle>
+                      <circle cx="8" cy="-11" r="0.85" fill="#ffd8a8">
+                        <animate
+                          attributeName="cx"
+                          values="8;8;6;6;9;9;6;10;10;6"
+                          keyTimes="0;0.12;0.2;0.32;0.44;0.52;0.64;0.76;0.84;1"
+                          dur="6s"
+                          repeatCount="indefinite"
+                          calcMode="linear"
+                        />
+                        <animate
+                          attributeName="cy"
+                          values="-11;-8;-1;-1;-11;-11;-1;-9;-9;-1"
+                          keyTimes="0;0.12;0.2;0.32;0.44;0.52;0.64;0.76;0.84;1"
+                          dur="6s"
+                          repeatCount="indefinite"
+                          calcMode="linear"
+                        />
                       </circle>
 
                       <path d="M-1,2 L-5,8" stroke="#2b8146" strokeWidth="1.7" strokeLinecap="round">
@@ -199,11 +241,6 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
                       <path d="M1,2 L4,8" stroke="#2b8146" strokeWidth="1.7" strokeLinecap="round">
                         <animate attributeName="d" values="M1,2 L4,8;M1,2 L6,6;M1,2 L4,8;M1,2 L6,6;M1,2 L3,9;M1,2 L6,6;M1,2 L4,8" dur="6s" repeatCount="indefinite" />
                       </path>
-
-                      <rect x="4.5" y="-12" width="4.5" height="5.8" rx="0.7" fill="#ffd93d" opacity="0.9">
-                        <animate attributeName="opacity" values="0.55;1;0.7;1;0.45;1;0.8" dur="6s" repeatCount="indefinite" />
-                      </rect>
-                      <path d="M5.2,-10.2 H8.3 M5.2,-8.6 H8.3" stroke="#1a1a2e" strokeWidth="0.45" strokeLinecap="round" />
 
                       <circle cx="7" cy="-15" r="0.9" fill="#ffd93d">
                         <animate attributeName="opacity" values="0;0.8;0.2;1;0;0.9;0.4" dur="6s" repeatCount="indefinite" />

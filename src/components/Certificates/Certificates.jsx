@@ -1,38 +1,8 @@
 import { useMemo, useState } from "react";
 import styles from "./Certificates.module.css";
+import certificates from "../../data/certificates";
 
-const certificateModules = import.meta.glob(
-  "../../assets/certificates/*.{pdf,png,jpg,jpeg}",
-  {
-    eager: true,
-    query: "?url",
-    import: "default",
-  }
-);
-
-const prettifyFileName = (path) => {
-  const fileName = path.split("/").pop() || "Certificate";
-  return fileName
-    .replace(/\.[^/.]+$/, "")
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
-};
-
-const certificates = Object.entries(certificateModules)
-  .map(([path, url]) => {
-    const extension = path.split(".").pop()?.toLowerCase() || "";
-    const isPdf = extension === "pdf";
-
-    return {
-      title: prettifyFileName(path),
-      url,
-      extension,
-      type: isPdf ? "pdf" : "image",
-    };
-  })
-  .sort((a, b) => a.title.localeCompare(b.title));
+const certificatesPerPage = 6;
 
 const filters = [
   { id: "all", label: "All" },
@@ -40,16 +10,39 @@ const filters = [
   { id: "pdf", label: "PDFs" },
 ];
 
+const imageCount = certificates.filter((certificate) => certificate.type === "image").length;
+const pdfCount = certificates.filter((certificate) => certificate.type === "pdf").length;
+
 export default function Certificates() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [pageIndex, setPageIndex] = useState(0);
 
-  const visibleCertificates = useMemo(() => {
+  const filteredCertificates = useMemo(() => {
     if (activeFilter === "all") return certificates;
     return certificates.filter((certificate) => certificate.type === activeFilter);
   }, [activeFilter]);
 
-  const imageCount = certificates.filter((certificate) => certificate.type === "image").length;
-  const pdfCount = certificates.filter((certificate) => certificate.type === "pdf").length;
+  const totalPages = Math.max(1, Math.ceil(filteredCertificates.length / certificatesPerPage));
+  const currentPageIndex = Math.min(pageIndex, totalPages - 1);
+  const visibleCertificates = filteredCertificates.slice(
+    currentPageIndex * certificatesPerPage,
+    currentPageIndex * certificatesPerPage + certificatesPerPage
+  );
+  const firstVisible = filteredCertificates.length ? currentPageIndex * certificatesPerPage + 1 : 0;
+  const lastVisible = Math.min(
+    (currentPageIndex + 1) * certificatesPerPage,
+    filteredCertificates.length
+  );
+  const canGoBackward = currentPageIndex > 0;
+  const canGoForward = currentPageIndex < totalPages - 1;
+
+  const goBackward = () => {
+    setPageIndex((currentPage) => Math.max(0, currentPage - 1));
+  };
+
+  const goForward = () => {
+    setPageIndex((currentPage) => Math.min(totalPages - 1, currentPage + 1));
+  };
 
   return (
     <section id="certificates" className={styles.certificates}>
@@ -88,15 +81,43 @@ export default function Certificates() {
               className={`${styles.filterButton} ${
                 activeFilter === filter.id ? styles.activeFilter : ""
               }`}
-              onClick={() => setActiveFilter(filter.id)}
+              onClick={() => {
+                setActiveFilter(filter.id);
+                setPageIndex(0);
+              }}
             >
               {filter.label}
             </button>
           ))}
         </div>
-        <p className={styles.counter}>
-          Showing {visibleCertificates.length} of {certificates.length}
-        </p>
+        <div className={styles.pager} aria-label="Certificate navigation">
+          <p className={styles.counter}>
+            Showing {firstVisible}-{lastVisible} of {filteredCertificates.length}
+          </p>
+          <div className={styles.pagerButtons}>
+            <button
+              type="button"
+              className={styles.navButton}
+              onClick={goBackward}
+              disabled={!canGoBackward}
+              aria-label="Show previous certificates"
+            >
+              <i className="fa-solid fa-chevron-left"></i>
+            </button>
+            <span className={styles.pageIndicator}>
+              {currentPageIndex + 1} / {totalPages}
+            </span>
+            <button
+              type="button"
+              className={styles.navButton}
+              onClick={goForward}
+              disabled={!canGoForward}
+              aria-label="Show next certificates"
+            >
+              <i className="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
 
       {visibleCertificates.length > 0 ? (

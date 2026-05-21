@@ -110,6 +110,64 @@
 .counter {
   color: #9fb0cf;
   font-size: 14px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.pagerButtons {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(12, 18, 32, 0.76);
+}
+
+.navButton {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.navButton:hover:not(:disabled),
+.navButton:focus-visible {
+  border-color: rgba(243, 189, 85, 0.72);
+  background: rgba(243, 189, 85, 0.16);
+  transform: translateY(-1px);
+}
+
+.navButton:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.navButton:disabled {
+  color: rgba(255, 255, 255, 0.32);
+  cursor: not-allowed;
+}
+
+.pageIndicator {
+  min-width: 46px;
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
 }
 
 .grid {
@@ -292,6 +350,16 @@
   .toolbar {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .pager {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+
+  .counter {
+    white-space: normal;
   }
 
   .grid {

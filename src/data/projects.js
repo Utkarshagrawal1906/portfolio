@@ -22,7 +22,7 @@ const projects = [
     description: "Inventory management and accounting desktop application.",
     images: [work1],
     external: "https://github.com/Utkarshagrawal1906/Accounting",
-    tags: ["desktop application"],
+    tags: ["Desktop Application","Java","SQLite","Android"],
   },
   {
     slug: "sanskrit-dictionary",
@@ -30,7 +30,7 @@ const projects = [
     description: "English–Hindi–Sanskrit dictionary (Android app).",
     images: [work2],
     external: "https://play.google.com/store/apps/details?id=com.utkarsh.sanskritdictonary&hl=en_IN",
-    tags: ["android"],
+    tags: ["Android","Java"],
   },
   {
     slug: "vision",
@@ -38,7 +38,7 @@ const projects = [
     description: "Personal voice assistant built for desktop (Vision).",
     images: [work3],
     external: "https://github.com/Utkarshagrawal1906/Vision1",
-    tags: ["desktop application", "AI"],
+    tags: ["Desktop Application", "AI","Python"],
   },
   {
     slug: "hand-cricket",
@@ -46,7 +46,7 @@ const projects = [
     description: "Simple hand cricket game against the computer.",
     images: [handCricket],
     external: "https://github.com/Utkarshagrawal1906/hand-cricket",
-    tags: ["desktop application"],
+    tags: ["Desktop Application","Java"],
   },
   {
     slug: "ludo",
@@ -54,7 +54,7 @@ const projects = [
     description: "Desktop Ludo game.",
     images: [ludo],
     external: "https://github.com/Utkarshagrawal1906/ludo",
-    tags: ["desktop application"],
+    tags: ["Desktop Application","Java"],
   },
   {
     slug: "snake",
@@ -62,7 +62,7 @@ const projects = [
     description: "Classic snake game.",
     images: [snake],
     external: "https://github.com/Utkarshagrawal1906/snake",
-    tags: ["desktop application"],
+    tags: ["Desktop Application","Python"],
   },
   {
     slug: "tagger",
@@ -70,7 +70,7 @@ const projects = [
     description: "Tool to tag system files for fast searching.",
     images: [tagger],
     external: "#",
-    tags: ["desktop application"],
+    tags: ["Desktop Application","Java"],
   },
   {
     slug: "rfid",
@@ -78,7 +78,7 @@ const projects = [
     description: "Attendance management using RFID.",
     images: [rfid],
     external: "#",
-    tags: ["desktop application"],
+    tags: ["Desktop Application","Java"],
   },
   {
     slug: "upp",
@@ -86,7 +86,7 @@ const projects = [
     description: "UPP project repository and screenshot.",
     images: [upp],
     external: "https://github.com/Utkarshagrawal1906/UPP",
-    tags: ["web"],
+    tags: ["Web","JavaScript"],
   },
   {
     slug: "lex-chatbot",
@@ -94,7 +94,7 @@ const projects = [
     description: "ChatBot built on Amazon Lex for appointment booking.",
     images: [lex],
     external: "#",
-    tags: ["cloud", "AI"],
+    tags: ["cloud", "AI","AWS"],
   },
   {
     slug: "start",
@@ -102,7 +102,7 @@ const projects = [
     description: "Desktop startup application.",
     images: [startImg],
     external: "#",
-    tags: ["desktop application"],
+    tags: ["desktop application","Java"],
   },
   {
     slug: "emailer",
@@ -110,7 +110,7 @@ const projects = [
     description: "Java email-sending application.",
     images: [emailImg],
     external: "#",
-    tags: ["desktop application"],
+    tags: ["desktop application","Java"],
   },
   {
     slug: "calculator",
@@ -118,7 +118,7 @@ const projects = [
     description: "Advanced calculator for programmers.",
     images: [calculator],
     external: "#",
-    tags: ["desktop application"],
+    tags: ["desktop application","Java"],
   },
   {
     slug: "trivia",
@@ -126,7 +126,7 @@ const projects = [
     description: "Small Android quiz app with animations.",
     images: [trivia],
     external: "#",
-    tags: ["android"],
+    tags: ["Android","Java"],
   },
   {
     slug: "KBC Game",
@@ -134,7 +134,7 @@ const projects = [
     description: "KBC Game screenshot.",
     images: [kbc, kbc_q],
     external: "#",
-    tags: ["desktop application"],
+    tags: ["Desktop Application","Java","MySQL"],
   },
 ];
 

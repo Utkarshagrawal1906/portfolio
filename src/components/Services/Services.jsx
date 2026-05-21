@@ -1,28 +1,7 @@
 import styles from "./Services.module.css";
+import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-
-const services = [
-  {
-    icon: "fa-solid fa-globe",
-    title: "Web Development",
-    desc: "Developed various websites using modern technologies.",
-  },
-  {
-    icon: "fa-brands fa-android",
-    title: "App Development",
-    desc: "Developed Android apps using Java and Kotlin.",
-  },
-  {
-    icon: "fa-solid fa-desktop",
-    title: "Desktop Applications",
-    desc: "Built desktop tools using Java & Python.",
-  },
-  {
-    icon: "fa-solid fa-robot",
-    title: "Artificial Intelligence",
-    desc: "Developed AI chatbots and AI agents.",
-  },
-];
+import services from "../../data/services";
 
 const desktopVisibleCount = 3;
 const slideDuration = 450;
@@ -191,10 +170,11 @@ export default function Services() {
               }}
             >
               {visibleServices.map((service, index) => (
-                <div
+                <Link
+                  to={`/services/${service.slug}`}
                   key={`${service.title}-${service.serviceIndex}-${index}`}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className={`${styles.card} ${
+                  className={`${styles.cardLink} ${styles.card} ${
                     index === featuredCardIndex ? styles.middleCard : ""
                   } ${index < featuredCardIndex ? styles.previousCard : ""} ${
                     index > featuredCardIndex ? styles.nextCard : ""
@@ -205,7 +185,7 @@ export default function Services() {
                   <i className={service.icon}></i>
                   <h2>{service.title}</h2>
                   <p>{service.desc}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
