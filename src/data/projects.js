@@ -23,6 +23,7 @@ const projects = [
     images: [work1],
     external: "https://github.com/Utkarshagrawal1906/Accounting",
     tags: ["Desktop Application","Java","SQLite","Android"],
+    year: 2020,
   },
   {
     slug: "sanskrit-dictionary",
@@ -31,6 +32,7 @@ const projects = [
     images: [work2],
     external: "https://play.google.com/store/apps/details?id=com.utkarsh.sanskritdictonary&hl=en_IN",
     tags: ["Android","Java"],
+    year: 2025,
   },
   {
     slug: "vision",
@@ -39,6 +41,7 @@ const projects = [
     images: [work3],
     external: "https://github.com/Utkarshagrawal1906/Vision1",
     tags: ["Desktop Application", "AI","Python"],
+    year: 2022,
   },
   {
     slug: "hand-cricket",
@@ -47,6 +50,7 @@ const projects = [
     images: [handCricket],
     external: "https://github.com/Utkarshagrawal1906/hand-cricket",
     tags: ["Desktop Application","Java"],
+    year: 2022,
   },
   {
     slug: "ludo",
@@ -55,6 +59,7 @@ const projects = [
     images: [ludo],
     external: "https://github.com/Utkarshagrawal1906/ludo",
     tags: ["Desktop Application","Java"],
+    year: 2021,
   },
   {
     slug: "snake",
@@ -63,6 +68,7 @@ const projects = [
     images: [snake],
     external: "https://github.com/Utkarshagrawal1906/snake",
     tags: ["Desktop Application","Python"],
+    year: 2022,
   },
   {
     slug: "tagger",
@@ -71,6 +77,7 @@ const projects = [
     images: [tagger],
     external: "#",
     tags: ["Desktop Application","Java"],
+    year: 2021,
   },
   {
     slug: "rfid",
@@ -79,6 +86,7 @@ const projects = [
     images: [rfid],
     external: "#",
     tags: ["Desktop Application","Java"],
+    year: 2017,
   },
   {
     slug: "upp",
@@ -87,6 +95,7 @@ const projects = [
     images: [upp],
     external: "https://github.com/Utkarshagrawal1906/UPP",
     tags: ["Web","JavaScript"],
+    year: 2020,
   },
   {
     slug: "lex-chatbot",
@@ -95,6 +104,7 @@ const projects = [
     images: [lex],
     external: "#",
     tags: ["cloud", "AI","AWS"],
+    year: 2023,
   },
   {
     slug: "start",
@@ -103,6 +113,7 @@ const projects = [
     images: [startImg],
     external: "#",
     tags: ["desktop application","Java"],
+    year: 2021,
   },
   {
     slug: "emailer",
@@ -111,6 +122,7 @@ const projects = [
     images: [emailImg],
     external: "#",
     tags: ["desktop application","Java"],
+    year: 2018,
   },
   {
     slug: "calculator",
@@ -119,6 +131,7 @@ const projects = [
     images: [calculator],
     external: "#",
     tags: ["desktop application","Java"],
+    year: 2023,
   },
   {
     slug: "trivia",
@@ -127,6 +140,7 @@ const projects = [
     images: [trivia],
     external: "#",
     tags: ["Android","Java"],
+    year: 2024,
   },
   {
     slug: "KBC Game",
@@ -135,6 +149,7 @@ const projects = [
     images: [kbc, kbc_q],
     external: "#",
     tags: ["Desktop Application","Java","MySQL"],
+    year: 2018,
   },
 ];
 

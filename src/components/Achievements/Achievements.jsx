@@ -69,7 +69,7 @@ export default function Achievements() {
     <section id="achievements" className={styles.achievements}>
       <div className={styles.header}>
         <p className={styles.eyebrow}>Milestones</p>
-        <h2>Certifications and Achievements</h2>
+        <h2>Achievements</h2>
         <p className={styles.intro}>
           A compact map of the work that best represents my engineering impact,
           leadership, product thinking, and consistency as a builder.

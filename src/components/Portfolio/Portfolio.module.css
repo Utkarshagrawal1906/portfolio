@@ -22,6 +22,33 @@
   gap: 40px;
 }
 
+.yearGroups {
+  display: grid;
+  gap: 42px;
+}
+
+.yearSection {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.yearTitle {
+  position: sticky;
+  top: 88px;
+  margin: 0;
+  color: #64b5f6;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.yearGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
 .card {
   position: relative;
   border-radius: 12px;
@@ -116,6 +143,25 @@
   }
 
   .grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .yearGroups {
+    gap: 34px;
+  }
+
+  .yearSection {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .yearTitle {
+    position: static;
+    font-size: 24px;
+  }
+
+  .yearGrid {
     grid-template-columns: 1fr;
     gap: 22px;
   }
