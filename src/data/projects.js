@@ -1,5 +1,5 @@
 import work1 from "../assets/accounting.png";
-import work2 from "../assets/Sans.jpeg";
+import work2 from "../assets/sans.jpeg";
 import work3 from "../assets/vision.png";
 import handCricket from "../assets/hand cricket.png";
 import kbc from "../assets/kbc.png";
