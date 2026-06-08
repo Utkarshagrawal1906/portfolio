@@ -41,7 +41,7 @@ const achievements = [
     accent: "product",
     icon: "fa-brands fa-google-play",
     summary:
-      "Built and released an Android app on PlayStore, Downloads from 35+ countries and 4.9 rating on Play Store.",
+      "Built and released an Android app on PlayStore, Downloads from 35+ countries and 4.7 rating on Play Store.",
     signal: "Public release",
   },
   {
@@ -59,7 +59,7 @@ const achievements = [
     accent: "craft",
     icon: "fa-solid fa-chess",
     summary:
-      "2004 rating at Blitz, 1844 at Rapid and 1777 at Bullet, showcasing strategic thinking and problem-solving skills.",
+      "2004 rating at Blitz, 1844 at Rapid and 1788 at Bullet, showcasing strategic thinking and problem-solving skills.",
     signal: "Strategic Thinker",
   },
 ];

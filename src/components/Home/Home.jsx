@@ -1,14 +1,46 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { lazy, Suspense, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import Header from "../Header/Header";
-import About from "../About/About";
-import Services from "../Services/Services";
-import Portfolio from "../Portfolio/Portfolio";
-import Achievements from "../Achievements/Achievements";
-import Certificates from "../Certificates/Certificates";
-import Contact from "../Contact/Contact";
 import GameHUD from "../GameHUD/GameHUD";
 import AnimatedBackground from "../AnimatedBackground/AnimatedBackground";
 import styles from "./Home.module.css";
+
+const About = lazy(() => import("../About/About"));
+const Services = lazy(() => import("../Services/Services"));
+const Portfolio = lazy(() => import("../Portfolio/Portfolio"));
+const Achievements = lazy(() => import("../Achievements/Achievements"));
+const Certificates = lazy(() => import("../Certificates/Certificates"));
+const Contact = lazy(() => import("../Contact/Contact"));
+
+function DeferredSection({ children, eager = false }) {
+  const sectionRef = useRef(null);
+  const [shouldRender, setShouldRender] = useState(eager);
+
+  useEffect(() => {
+    if (shouldRender) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldRender(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "900px 0px" }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [shouldRender]);
+
+  return (
+    <div ref={sectionRef} className={styles.deferredSection}>
+      {shouldRender ? children : null}
+    </div>
+  );
+}
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -66,22 +98,35 @@ export default function Home() {
 
   // Handle scroll events to update current section
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+    let animationFrame = null;
 
-      sections.forEach((_, index) => {
-        const element = document.getElementById(`section-${index}`);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setCurrentSection(index);
+    const handleScroll = () => {
+      if (animationFrame) return;
+
+      animationFrame = requestAnimationFrame(() => {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+        sections.forEach((_, index) => {
+          const element = document.getElementById(`section-${index}`);
+          if (element) {
+            const { offsetTop, offsetHeight } = element;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setCurrentSection((currentIndex) => (
+                currentIndex === index ? currentIndex : index
+              ));
+            }
           }
-        }
+        });
+
+        animationFrame = null;
       });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(animationFrame);
+    };
   }, [sections]);
 
   return (
@@ -102,13 +147,20 @@ export default function Home() {
             id={`section-${index}`}
             className={styles.section}
           >
-            <AnimatedBackground sectionId={section.id} currentTypedTech={currentTypedTech} />
-            <div className={styles.sectionContent}>
-              {section.id === 'header' ?
-                <Header onTypedTextChange={handleTypedTextChange} /> :
-                <section.component />
-              }
-            </div>
+            <DeferredSection eager={index <= 1}>
+              <AnimatedBackground
+                sectionId={section.id}
+                currentTypedTech={section.id === "header" ? currentTypedTech : undefined}
+              />
+              <div className={styles.sectionContent}>
+                <Suspense fallback={null}>
+                  {section.id === 'header' ?
+                    <Header onTypedTextChange={handleTypedTextChange} /> :
+                    <section.component />
+                  }
+                </Suspense>
+              </div>
+            </DeferredSection>
           </div>
         ))}
       </div>

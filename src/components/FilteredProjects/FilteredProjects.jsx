@@ -75,7 +75,12 @@ export default function FilteredProjects() {
             {filteredProjects.map((project) => (
               <Link key={project.slug} to={`/projects/${project.slug}`} className={styles.cardLink}>
                 <article className={styles.projectCard}>
-                  <img src={project.images[0]} alt={project.title} />
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className={styles.cardContent}>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
@@ -125,15 +130,17 @@ export default function FilteredProjects() {
               <article key={certificate.url} className={styles.certificateCard}>
                 <div className={styles.certificatePreview}>
                   {certificate.type === "pdf" ? (
-                    <object
-                      data={`${certificate.url}#toolbar=0&navpanes=0`}
-                      type="application/pdf"
-                      aria-label={`${certificate.title} PDF preview`}
-                    >
-                      <a href={certificate.url}>Open {certificate.title}</a>
-                    </object>
+                    <div className={styles.pdfPreview} aria-label={`${certificate.title} PDF`}>
+                      <i className="fa-solid fa-file-pdf"></i>
+                      <span>{certificate.extension}</span>
+                    </div>
                   ) : (
-                    <img src={certificate.url} alt={certificate.title} loading="lazy" />
+                    <img
+                      src={certificate.url}
+                      alt={certificate.title}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   )}
                 </div>
                 <div className={styles.cardContent}>

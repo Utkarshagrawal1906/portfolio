@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './AnimatedBackground.module.css';
 
 const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
@@ -367,4 +367,4 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
   );
 };
 
-export default AnimatedBackground;
+export default memo(AnimatedBackground);

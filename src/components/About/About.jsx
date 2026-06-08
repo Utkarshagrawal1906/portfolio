@@ -21,7 +21,7 @@ export default function About() {
       <div className={styles.container}>
         <div className={styles.row}>
           <div className={styles.col1}>
-            <img src={profile} alt="Utkarsh profile" />
+            <img src={profile} alt="Utkarsh profile" loading="lazy" decoding="async" />
           </div>
 
           <div className={styles.col2}>

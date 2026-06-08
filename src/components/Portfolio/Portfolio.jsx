@@ -9,7 +9,12 @@ function ProjectCard({ project }) {
   return (
     <Link to={`/projects/${project.slug}`} className={styles.cardLink}>
       <div className={styles.card}>
-        <img src={project.images[0]} alt={project.title} />
+        <img
+          src={project.images[0]}
+          alt={project.title}
+          loading="lazy"
+          decoding="async"
+        />
         <div className={styles.overlay}>
           <h3>{project.title}</h3>
           <p>{project.description}</p>

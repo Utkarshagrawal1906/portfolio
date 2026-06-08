@@ -1,4 +1,6 @@
 // Simple sound effects for the game interface
+let sharedAudioContext = null;
+
 export const playSound = (soundType) => {
   if (typeof window === 'undefined') return;
 
@@ -6,7 +8,8 @@ export const playSound = (soundType) => {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   if (!AudioContext) return;
 
-  const audioContext = new AudioContext();
+  sharedAudioContext ||= new AudioContext();
+  const audioContext = sharedAudioContext;
 
   const playTone = (frequency, duration, type = 'sine') => {
     const oscillator = audioContext.createOscillator();

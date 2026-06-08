@@ -44,7 +44,7 @@ export default function Contact() {
               <a href="https://www.linkedin.com/in/utkarshag7/" aria-label="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
               <a href="https://github.com/Utkarshagrawal1906" aria-label="GitHub"><i className="fa-brands fa-github"></i></a>
               <a href="https://www.hackerrank.com/UtkarshAg" aria-label="HackerRank"><i className="fa-brands fa-hackerrank"></i></a>
-              <a href="https://leetcode.com/utkarsh197" aria-label="LeetCode"><img width="24" height="24" src={leetcodeLogo} alt="leetcode"/></a>
+              <a href="https://leetcode.com/utkarsh197" aria-label="LeetCode"><img width="24" height="24" src={leetcodeLogo} alt="leetcode" loading="lazy" decoding="async"/></a>
             </div>
 
             <a href={resume} download="Utkarsh Agrawal Resume" className={styles.cv}>Download CV</a>

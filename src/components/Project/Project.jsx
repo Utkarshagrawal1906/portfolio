@@ -120,7 +120,7 @@ export default function Project() {
             }`}
             aria-hidden="true"
           >
-            <img src={previewImage} alt="" />
+            <img src={previewImage} alt="" loading="lazy" decoding="async" />
           </div>
         )}
 
@@ -153,6 +153,8 @@ export default function Project() {
                 <img
                   src={image}
                   alt={`${project.title} screenshot ${index + 1}`}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
                 />
               </div>
             ))}

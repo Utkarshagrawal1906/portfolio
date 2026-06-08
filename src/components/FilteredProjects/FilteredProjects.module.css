@@ -157,7 +157,7 @@
 
 .projectCard img,
 .certificatePreview img,
-.certificatePreview object {
+.pdfPreview {
   display: block;
   width: 100%;
   height: 100%;
@@ -182,6 +182,32 @@
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     #05070d;
   background-size: 18px 18px;
+}
+
+.pdfPreview {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  align-content: center;
+  color: #f8fafc;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(243, 189, 85, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(127, 29, 29, 0.42), rgba(15, 23, 42, 0.92)),
+    #05070d;
+}
+
+.pdfPreview i {
+  color: #f87171;
+  font-size: 52px;
+  filter: drop-shadow(0 14px 28px rgba(248, 113, 113, 0.2));
+}
+
+.pdfPreview span {
+  color: #fecaca;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .cardContent {
