@@ -28,68 +28,62 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
             {/* Java - Top Left */}
             {activeTechs.includes('java') && (
               <g className={styles.techLogo}>
-                <circle cx="56vw" cy="80vh" r="3vw" fill="#ed8b00" opacity="0.5">
-                  <animate attributeName="r" values="3vw;4vw;3vw" dur="1s" repeatCount="indefinite" />
+                <circle cx="62vw" cy="80vh" r="1.6vw" fill="#ed8b00" opacity="0.5">
+                  <animate attributeName="r" values="1.6vw;2vw;1.6vw" dur="1s" repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.4;0.7;0.4" dur="1s" repeatCount="indefinite" />
                 </circle>
-                <text x="56vw" y="80vh" textAnchor="middle" fill="white" fontSize="1.5vw" fontWeight="bold">JAVA</text>
-                <text x="56vw" y="83vh" textAnchor="middle" fill="white" fontSize="1.2vw">DEVELOPER</text>
+                <text x="62vw" y="80.35vh" textAnchor="middle" fill="white" fontSize="0.78vw" fontWeight="bold">JAVA</text>
               </g>
             )}
 
             {/* Python - Top Right */}
             {activeTechs.includes('python') && (
               <g className={styles.techLogo}>
-                <rect x="47vw" y="45vh" width="7vw" height="7vw" fill="#3776ab" opacity="0.5" rx="2vw">
-                  <animate attributeName="width" values="7vw;9vw;7vw" dur="1s" repeatCount="indefinite" />
-                  <animate attributeName="height" values="7vw;9vw;7vw" dur="1s" repeatCount="indefinite" />
+                <rect x="56vw" y="47.6vh" width="3.5vw" height="3.2vw" fill="#3776ab" opacity="0.5" rx="0.8vw">
+                  <animate attributeName="width" values="3.2vw;4vw;3.2vw" dur="1s" repeatCount="indefinite" />
+                  <animate attributeName="height" values="3.2vw;4vw;3.2vw" dur="1s" repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.4;0.7;0.4" dur="1s" repeatCount="indefinite" />
                 </rect>
-                <text x="51vw" y="52vh" textAnchor="middle" fill="white" fontSize="1.5vw" fontWeight="bold">PYTHON</text>
-                <text x="51vw" y="56vh" textAnchor="middle" fill="#ffd43b" fontSize="1.2vw">DEVELOPER</text>
+                <text x="58vw" y="50.85vh" textAnchor="middle" fill="white" fontSize="0.82vw" fontWeight="bold">PYTHON</text>
               </g>
             )}
 
             {/* Web - Bottom Left */}
             {activeTechs.includes('web') && (
               <g className={styles.techLogo}>
-                <rect x="48vw" y="21vh" width="7vw" height="7vw" fill="#61dafb" opacity="0.5" rx="2vw">
-                  <animate attributeName="width" values="7vw;9vw;7vw" dur="1s" repeatCount="indefinite" />
-                  <animate attributeName="height" values="7vw;9vw;7vw" dur="1s" repeatCount="indefinite" />
+                <rect x="58.4vw" y="23.4vh" width="3.2vw" height="3.2vw" fill="#61dafb" opacity="0.5" rx="0.8vw">
+                  <animate attributeName="width" values="3.2vw;4vw;3.2vw" dur="1s" repeatCount="indefinite" />
+                  <animate attributeName="height" values="3.2vw;4vw;3.2vw" dur="1s" repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.4;0.7;0.4" dur="1s" repeatCount="indefinite" />
                 </rect>
-                <text x="52vw" y="28vh" textAnchor="middle" fill="#282c34" fontSize="2vw" fontWeight="bold">&lt;/&gt;</text>
-                <text x="52vw" y="33vh" textAnchor="middle" fill="#282c34" fontSize="1.5vw">WEB DEV</text>
-                {/* <text x="53vw" y="35vh" textAnchor="middle" fill="#282c34" fontSize="1.5vw">REACT</text> */}
+                <text x="60vw" y="26.65vh" textAnchor="middle" fill="#282c34" fontSize="0.82vw" fontWeight="bold">WEB</text>
               </g>
             )}
 
             {/* Android - Bottom Right */}
             {activeTechs.includes('android') && (
               <g className={styles.techLogo}>
-                <circle cx="88vw" cy="27vh" r="4vw" fill="#3ddc84" opacity="0.5">
-                  <animate attributeName="r" values="4vw;6vw;4vw" dur="1s" repeatCount="indefinite" />
+                <circle cx="87vw" cy="28vh" r="1.5vw" fill="#3ddc84" opacity="0.5">
+                  <animate attributeName="r" values="1.5vw;2vw;1.5vw" dur="1s" repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.4;0.7;0.4" dur="1s" repeatCount="indefinite" />
                 </circle>
-                <circle cx="86.5vw" cy="23vh" r="0.7vw" fill="#ffffff" />
-                <circle cx="89.5vw" cy="23vh" r="0.7vw" fill="#ffffff" />
+                <circle cx="86.4vw" cy="27vh" r="0.3vw" fill="#ffffff" />
+                <circle cx="87.6vw" cy="27vh" r="0.3vw" fill="#ffffff" />
                 <path d="M86vw,26vh Q90vw,30vh 94vw,26vh" stroke="#ffffff" strokeWidth="0.5vw" fill="none" />
-                <text x="88vw" y="29vh" textAnchor="middle" fill="white" fontSize="2vw">ANDROID</text>
-                <text x="88vw" y="32vh" textAnchor="middle" fill="white" fontSize="1.5vw">DEVELOPER</text>
+                <text x="87vw" y="29vh" textAnchor="middle" fill="white" fontSize="0.5vw">ANDROID</text>
+                <text x="87vw" y="30vh" textAnchor="middle" fill="white" fontSize="0.4vw">DEVELOPER</text>
               </g>
             )}
 
             {/* Software - Center */}
             {activeTechs.includes('software') && (
               <g className={styles.techLogo}>
-                <rect x="87vw" y="51vh" width="8vw" height="8vw" fill="#007acc" opacity="0.5" rx="1vw">
-                  <animate attributeName="width" values="8vw;10vw;8vw" dur="1.5s" repeatCount="indefinite" />
-                  <animate attributeName="height" values="8vw;10vw;8vw" dur="1.5s" repeatCount="indefinite" />
+                <rect x="86.4vw" y="53.4vh" width="3.2vw" height="3.2vw" fill="#007acc" opacity="0.5" rx="0.8vw">
+                  <animate attributeName="width" values="3.2vw;4vw;3.2vw" dur="1.5s" repeatCount="indefinite" />
+                  <animate attributeName="height" values="3.2vw;4vw;3.2vw" dur="1.5s" repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.4;0.7;0.4" dur="1.5s" repeatCount="indefinite" />
                 </rect>
-                <text x="92vw" y="58vh" textAnchor="middle" fill="white" fontSize="1.7vw">SOFTWARE</text>
-                <text x="92vw" y="62vh" textAnchor="middle" fill="#ffd700" fontSize="1.5vw">DEVELOPER</text>
-                <text x="92vw" y="66vh" textAnchor="middle" fill="white" fontSize="2vw" fontWeight="bold">TCS</text>
+                <text x="88.5vw" y="57.65vh" textAnchor="middle" fill="white" fontSize="0.82vw" fontWeight="bold">TCS</text>
               </g>
             )}
 

@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  font-family: 'Courier New', monospace;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
   pointer-events: none;
   opacity: 1;
   transform: translateY(0);
@@ -42,30 +42,54 @@
 }
 
 .navArrow {
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  border: 2px solid #00d4ff;
-  color: #00d4ff;
+  width: 46px;
+  height: 46px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.13)),
+    rgba(17, 25, 40, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.46);
   border-radius: 50%;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.62),
+    inset 0 -14px 24px rgba(255, 255, 255, 0.08),
+    0 14px 34px rgba(15, 23, 42, 0.2);
+  color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 8px rgba(15, 23, 42, 0.28);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .navArrow:hover:not(:disabled) {
-  background: linear-gradient(135deg, #00d4ff, #0099cc);
-  color: white;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
-  transform: scale(1.1);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.2)),
+    rgba(70, 112, 166, 0.24);
+  border-color: rgba(255, 255, 255, 0.68);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.76),
+    inset 0 -14px 24px rgba(255, 255, 255, 0.11),
+    0 16px 38px rgba(15, 23, 42, 0.26);
+  color: #ffffff;
+  transform: translateY(-1px) scale(1.04);
+}
+
+.navArrow:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 10px 22px rgba(15, 23, 42, 0.14),
+    0 8px 22px rgba(15, 23, 42, 0.18);
 }
 
 .navArrow:disabled {
-  opacity: 0.3;
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
@@ -84,53 +108,77 @@
 
 .currentSectionName {
   font-size: 14px;
-  font-weight: bold;
-  color: #00d4ff;
-  text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.86);
+  text-shadow: 0 1px 12px rgba(15, 23, 42, 0.36);
   margin-top: 5px;
   text-align: center;
   white-space: nowrap;
 }
 
 .sectionDot {
-  width: 35px;
-  height: 35px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #333, #666);
-  border: 2px solid #999;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.11)),
+    rgba(17, 25, 40, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.58),
+    inset 0 -10px 20px rgba(255, 255, 255, 0.07),
+    0 10px 26px rgba(15, 23, 42, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  font-weight: bold;
-  color: #ccc;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
   cursor: pointer;
-  transition: all 0.3s ease;
+  text-shadow: 0 1px 8px rgba(15, 23, 42, 0.32);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .sectionDot:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.64);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 -10px 20px rgba(255, 255, 255, 0.1),
+    0 13px 30px rgba(15, 23, 42, 0.24);
+  transform: translateY(-1px) scale(1.04);
 }
 
 .sectionDot.visited {
-  background: linear-gradient(135deg, #2ed573, #26de81);
-  border-color: #2ed573;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.12)),
+    rgba(52, 199, 89, 0.32);
+  border-color: rgba(185, 255, 214, 0.56);
   color: white;
-  box-shadow: 0 0 10px rgba(46, 213, 115, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.66),
+    inset 0 -10px 20px rgba(52, 199, 89, 0.1),
+    0 10px 28px rgba(52, 199, 89, 0.16);
 }
 
 .sectionDot.current {
-  background: linear-gradient(135deg, #ffa502, #ff6348);
-  border-color: #ffa502;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.16)),
+    rgba(10, 132, 255, 0.34);
+  border-color: rgba(205, 232, 255, 0.78);
   color: white;
-  box-shadow: 0 0 15px rgba(255, 165, 2, 0.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    inset 0 -10px 20px rgba(10, 132, 255, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 14px 34px rgba(10, 132, 255, 0.24);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  50% { transform: scale(1.06); }
 }
 
 /* Section Info */
@@ -297,8 +345,7 @@
   .navArrow {
     width: 34px;
     height: 34px;
-    font-size: 18px;
-    border-width: 1px;
+    font-size: 17px;
   }
 
   .sectionIndicator {
@@ -319,7 +366,6 @@
     height: 26px;
     flex: 0 0 26px;
     font-size: 11px;
-    border-width: 1px;
   }
 
   .currentSectionName {
