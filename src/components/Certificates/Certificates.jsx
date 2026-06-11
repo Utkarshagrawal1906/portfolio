@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import styles from "./Certificates.module.css";
 import certificates from "../../data/certificates";
 
@@ -16,6 +16,16 @@ const pdfCount = certificates.filter((certificate) => certificate.type === "pdf"
 export default function Certificates() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [pageIndex, setPageIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const filteredCertificates = useMemo(() => {
     if (activeFilter === "all") return certificates;
@@ -140,14 +150,20 @@ export default function Certificates() {
                 </span> */}
 
                 {certificate.type === "pdf" ? (
-                  <object
-                    className={styles.pdfFrame}
-                    data={`${certificate.url}#toolbar=0&navpanes=0`}
-                    type="application/pdf"
-                    aria-label={`${certificate.title} PDF preview`}
-                  >
-                    <a href={certificate.url}>Open {certificate.title}</a>
-                  </object>
+                  isMobile ? (
+                    <div className={styles.pdfIcon}>
+                      <i className="fa-solid fa-file-pdf"></i>
+                    </div>
+                  ) : (
+                    <object
+                      className={styles.pdfFrame}
+                      data={`${certificate.url}#toolbar=0&navpanes=0`}
+                      type="application/pdf"
+                      aria-label={`${certificate.title} PDF preview`}
+                    >
+                      <a href={certificate.url}>Open {certificate.title}</a>
+                    </object>
+                  )
                 ) : (
                   <img src={certificate.url} alt={certificate.title} loading="lazy" />
                 )}
