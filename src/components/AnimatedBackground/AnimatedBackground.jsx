@@ -8,8 +8,18 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
         // Ensure activeTechs is an array
         const activeTechs = Array.isArray(currentTypedTech) ? currentTypedTech : [];
 
+        // Limit animated nodes to the upper portion of the section so they don't overlap text.
+        // `clipBottom` is the percentage of the SVG height to hide from the bottom.
+        const clipBottom = '55%';
+
         return (
-          <svg className={styles.animatedSvg} viewBox="0 0 100vw 100vh" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <svg
+            className={styles.animatedSvg}
+            viewBox="0 0 100vw 100vh"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ clipPath: `inset(0 0 ${clipBottom} 0)`, WebkitClipPath: `inset(0 0 ${clipBottom} 0)` }}
+          >
             <defs>
               <linearGradient id="homeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#000000" stopOpacity="0.8">
@@ -252,7 +262,13 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
 
       case 'services':
         return (
-          <svg className={styles.animatedSvg} viewBox="0 0 100vw 100vh" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <svg
+            className={styles.animatedSvg}
+            viewBox="0 0 100vw 100vh"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ clipPath: `inset(0 0 60% 0)`, WebkitClipPath: `inset(0 0 60% 0)` }}
+          >
             <defs>
               <linearGradient id="servicesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#000000" stopOpacity="0.1">
@@ -277,7 +293,13 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
 
       case 'portfolio':
         return (
-          <svg className={styles.animatedSvg} viewBox="0 0 100vw 100vh" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <svg
+            className={styles.animatedSvg}
+            viewBox="0 0 100vw 100vh"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ clipPath: `inset(0 0 70% 0)`, WebkitClipPath: `inset(0 0 70% 0)` }}
+          >
             <defs>
               <radialGradient id="portfolioGradient" cx="30%" cy="30%" r="60%">
                 <stop offset="0%" stopColor="#000000" stopOpacity="0.1">
@@ -303,7 +325,13 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
 
       case 'contact':
         return (
-          <svg className={styles.animatedSvg} viewBox="0 0 100vw 100vh" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <svg
+            className={styles.animatedSvg}
+            viewBox="0 0 100vw 100vh"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ clipPath: `inset(0 0 70% 0)`, WebkitClipPath: `inset(0 0 70% 0)` }}
+          >
             <defs>
               <linearGradient id="contactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#000000" stopOpacity="0.8">
@@ -331,7 +359,13 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
 
       case 'achievements':
         return (
-          <svg className={styles.animatedSvg} viewBox="0 0 100vw 100vh" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <svg
+            className={styles.animatedSvg}
+            viewBox="0 0 100vw 100vh"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ clipPath: `inset(0 0 70% 0)`, WebkitClipPath: `inset(0 0 70% 0)` }}
+          >
             <defs>
               <linearGradient id="achievementsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#020617" stopOpacity="0.88" />
