@@ -23,7 +23,7 @@
 /* Ensure main content stays above animated background */
 .section .sectionContent {
   position: relative;
-  z-index: 2;
+  z-index: 20; /* keep content above animated background */
   background: transparent; /* Ensure no background covers the animation */
 }
 
@@ -34,7 +34,7 @@
 
 .sectionContent {
   position: relative;
-  z-index: 2;
+  z-index: 20;
   width: 100%;
   height: 100%;
 }
