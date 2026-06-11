@@ -40,7 +40,8 @@
 }
 
 .deferredSection {
-  min-height: 100vh;
+  /* Allow sections to size to their content instead of forcing full viewport height */
+  min-height: auto;
   position: relative;
 }
 
