@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.GITHUB_ACTIONS ? '/portfolio/' : '/',
+  base: process.env.VITE_BASE || (process.env.GITHUB_ACTIONS ? '/portfolio/' : '/'),
 })
