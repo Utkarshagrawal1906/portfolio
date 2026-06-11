@@ -1,5 +1,6 @@
 import styles from "./FilteredProjects.module.css";
 import { useParams, Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import projects from "../../data/projects";
 import certificates from "../../data/certificates";
 import services from "../../data/services";
@@ -33,6 +34,44 @@ export default function FilteredProjects() {
     project.tags?.some((tag) => service.projectTags.includes(tag))
   );
   const relatedCertificates = getRelatedCertificates(service.certificateKeywords);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  const gridRef = useRef(null);
+  const projectGridRef = useRef(null);
+  const [certColumns, setCertColumns] = useState(1);
+  const [projColumns, setProjColumns] = useState(1);
+
+  useEffect(() => {
+    const updateLayout = () => {
+      setIsMobile(window.innerWidth <= 600);
+      const grid = gridRef.current;
+      if (grid) {
+        const cols = getComputedStyle(grid).gridTemplateColumns
+          .split(" ")
+          .filter(Boolean).length;
+        setCertColumns(cols || 1);
+      }
+
+      const projGrid = projectGridRef.current;
+      if (projGrid) {
+        const pcols = getComputedStyle(projGrid).gridTemplateColumns
+          .split(" ")
+          .filter(Boolean).length;
+        setProjColumns(pcols || 1);
+      }
+    };
+
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
+  }, []);
+
+  // Show two visible rows worth of certificates based on current columns
+  const visibleCertificateCount = Math.max(1, certColumns) * 2;
+  const visibleRelatedCertificates = relatedCertificates.slice(0, visibleCertificateCount);
+
+  const visibleProjectCount = Math.max(1, projColumns) * 2;
+  const visibleFilteredProjects = filteredProjects.slice(0, visibleProjectCount);
 
   return (
     <section className={styles.filteredProjects}>
@@ -71,8 +110,8 @@ export default function FilteredProjects() {
         </div>
 
         {filteredProjects.length > 0 ? (
-          <div className={styles.projectGrid}>
-            {filteredProjects.map((project) => (
+          <div className={styles.projectGrid} ref={projectGridRef}>
+            {visibleFilteredProjects.map((project) => (
               <Link key={project.slug} to={`/projects/${project.slug}`} className={styles.cardLink}>
                 <article className={styles.projectCard}>
                   <img
@@ -125,15 +164,26 @@ export default function FilteredProjects() {
         </div>
 
         {relatedCertificates.length > 0 ? (
-          <div className={styles.certificateGrid}>
-            {relatedCertificates.map((certificate) => (
+          <div className={styles.certificateGrid} ref={gridRef}>
+            {visibleRelatedCertificates.map((certificate) => (
               <article key={certificate.url} className={styles.certificateCard}>
                 <div className={styles.certificatePreview}>
                   {certificate.type === "pdf" ? (
-                    <div className={styles.pdfPreview} aria-label={`${certificate.title} PDF`}>
-                      <i className="fa-solid fa-file-pdf"></i>
-                      <span>{certificate.extension}</span>
-                    </div>
+                    isMobile ? (
+                      <div className={styles.pdfPreview} aria-label={`${certificate.title} PDF`}>
+                        <i className="fa-solid fa-file-pdf"></i>
+                        <span>{certificate.extension}</span>
+                      </div>
+                    ) : (
+                      <object
+                        className={styles.pdfFrame}
+                        data={`${certificate.url}#toolbar=0&navpanes=0`}
+                        type="application/pdf"
+                        aria-label={`${certificate.title} PDF preview`}
+                      >
+                        <a href={certificate.url}>Open {certificate.title}</a>
+                      </object>
+                    )
                   ) : (
                     <img
                       src={certificate.url}

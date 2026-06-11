@@ -11,7 +11,7 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
         // Limit animated nodes to the upper portion of the section so they don't overlap text.
         // `clipBottom` is the percentage of the SVG height to hide from the bottom.
         // Set to 85% to reduce node graph height to ~70vh.
-        const clipBottom = '15%';
+        const clipBottom = '85%';
 
         return (
           <svg

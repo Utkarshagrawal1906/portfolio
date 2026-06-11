@@ -1,8 +1,8 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import styles from "./Certificates.module.css";
 import certificates from "../../data/certificates";
 
-const certificatesPerPage = 6;
+
 
 const filters = [
   { id: "all", label: "All" },
@@ -17,20 +17,40 @@ export default function Certificates() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [pageIndex, setPageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  const gridRef = useRef(null);
+  const [columns, setColumns] = useState(1);
 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 600);
     };
 
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const updateLayout = () => {
+      checkMobile();
+      const grid = gridRef.current;
+      if (grid) {
+        const cols = getComputedStyle(grid).gridTemplateColumns
+          .split(" ")
+          .filter(Boolean).length;
+        setColumns(cols || 1);
+      }
+    };
+
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
+    return () => window.removeEventListener('resize', updateLayout);
   }, []);
 
   const filteredCertificates = useMemo(() => {
     if (activeFilter === "all") return certificates;
     return certificates.filter((certificate) => certificate.type === activeFilter);
   }, [activeFilter]);
+
+  const certificatesPerPage = Math.max(1, columns) * 2;
+
+  useEffect(() => {
+    setPageIndex(0);
+  }, [certificatesPerPage, activeFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filteredCertificates.length / certificatesPerPage));
   const currentPageIndex = Math.min(pageIndex, totalPages - 1);
@@ -131,7 +151,7 @@ export default function Certificates() {
       </div>
 
       {visibleCertificates.length > 0 ? (
-        <div className={styles.grid}>
+        <div className={styles.grid} ref={gridRef}>
           {visibleCertificates.map((certificate) => (
             <article
               key={certificate.url}
