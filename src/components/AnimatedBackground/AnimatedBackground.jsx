@@ -10,8 +10,8 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
 
         // Limit animated nodes to the upper portion of the section so they don't overlap text.
         // `clipBottom` is the percentage of the SVG height to hide from the bottom.
-        // Increased to 80% to further reduce node graph height.
-        const clipBottom = '80%';
+        // Set to 85% to reduce node graph height to ~70vh.
+        const clipBottom = '15%';
 
         return (
           <svg
@@ -268,7 +268,7 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
             viewBox="0 0 100vw 100vh"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="xMidYMid slice"
-            style={{ clipPath: `inset(0 0 80% 0)`, WebkitClipPath: `inset(0 0 80% 0)` }}
+            style={{ clipPath: `inset(0 0 85% 0)`, WebkitClipPath: `inset(0 0 85% 0)` }}
           >
             <defs>
               <linearGradient id="servicesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -299,7 +299,7 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
             viewBox="0 0 100vw 100vh"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="xMidYMid slice"
-            style={{ clipPath: `inset(0 0 85% 0)`, WebkitClipPath: `inset(0 0 85% 0)` }}
+            style={{ clipPath: `inset(0 0 90% 0)`, WebkitClipPath: `inset(0 0 90% 0)` }}
           >
             <defs>
               <radialGradient id="portfolioGradient" cx="30%" cy="30%" r="60%">
@@ -331,7 +331,7 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
             viewBox="0 0 100vw 100vh"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="xMidYMid slice"
-            style={{ clipPath: `inset(0 0 85% 0)`, WebkitClipPath: `inset(0 0 85% 0)` }}
+            style={{ clipPath: `inset(0 0 90% 0)`, WebkitClipPath: `inset(0 0 90% 0)` }}
           >
             <defs>
               <linearGradient id="contactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -365,7 +365,7 @@ const AnimatedBackground = ({ sectionId, currentTypedTech }) => {
             viewBox="0 0 100vw 100vh"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="xMidYMid slice"
-            style={{ clipPath: `inset(0 0 85% 0)`, WebkitClipPath: `inset(0 0 85% 0)` }}
+            style={{ clipPath: `inset(0 0 90% 0)`, WebkitClipPath: `inset(0 0 90% 0)` }}
           >
             <defs>
               <linearGradient id="achievementsGradient" x1="0%" y1="0%" x2="100%" y2="100%">

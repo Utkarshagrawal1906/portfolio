@@ -23,7 +23,7 @@
 
 .graphLayer {
   position: absolute;
-  inset: -12vh auto 12vh 0;
+  inset: -12vh auto 27vh 0;
   width: 60%;
   min-width: 360px;
   z-index: 1;
@@ -121,7 +121,7 @@
 }
 
 .text {
-  margin: 20% 10%;
+  margin: 35% 10% 20% 10%;
   font-size: 25px;
   position: relative;
   z-index: 2;
